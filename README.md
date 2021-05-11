@@ -1,0 +1,3 @@
+- bashrc to append .bashrc
+- .vimrc in separate repo so far
+- .tmux.local in separate repo so far
