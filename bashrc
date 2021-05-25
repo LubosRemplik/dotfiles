@@ -13,3 +13,6 @@ export FZF_DEFAULT_OPTS="--history=$HOME/.fzf_history"
 
 # MYSQL default password for containers
 export MYSQL_PWD='secret'
+
+# CMD starts with username and full hostname
+export PS1='\[\033[0;32m\]\u@$(hostname -f):\[\033[36m\]\W\[\033[0m\] \$ '
