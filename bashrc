@@ -16,3 +16,9 @@ export MYSQL_PWD='secret'
 
 # CMD starts with username and full hostname
 export PS1='\[\033[0;32m\]\u@$(hostname -f):\[\033[36m\]\W\[\033[0m\] \$ '
+
+# Aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias dc='docker-compose'
