@@ -87,6 +87,17 @@ claudephp() {
 }
 
 # ============================================
+# Claude session shortcut
+# ============================================
+claude-session() {
+    if [[ $# -eq 0 ]]; then
+        echo "Usage: claude-session <title>" >&2
+        return 1
+    fi
+    claude --dangerously-skip-permissions "/session $*"
+}
+
+# ============================================
 # Prompt (basic - customize or use starship/oh-my-zsh)
 # ============================================
 autoload -Uz vcs_info
@@ -108,7 +119,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'  # Case insensitive
 bindkey -e  # Emacs-style bindings
 bindkey '^[[A' history-search-backward  # Up arrow
 bindkey '^[[B' history-search-forward   # Down arrow
-export PATH="$HOME/.local/bin:$PATH"
+# PATH moved to ~/.zshenv so popups / non-interactive shells get it too
 alias glab-hkdev='GLAB_CONFIG_DIR=~/.config/glab-hkdev glab'
 alias glab-hkdev='GLAB_CONFIG_DIR=~/.config/glab-hkdev glab'
 alias glab-hkdev='GLAB_CONFIG_DIR=~/.config/glab-hkdev glab'
