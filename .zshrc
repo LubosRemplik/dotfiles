@@ -20,7 +20,10 @@ if command -v tmux >/dev/null 2>&1 \
    && [ -z "$TMUX" ] \
    && [ "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ] \
    && [ -z "$INTELLIJ_ENVIRONMENT_READER" ]; then
-    exec tmux new-session -A -s lubos
+    # tattach waits for tmux-continuum to restore sessions before attaching;
+    # `new-session -A -s lubos` here would instantly create an empty session
+    # that races the restore and ends up overwriting the saved state.
+    exec "$HOME/.tmux-local/tattach" lubos
 fi
 
 # ============================================
