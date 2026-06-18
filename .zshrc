@@ -97,7 +97,9 @@ claude-session() {
         echo "Usage: claude-session <title>" >&2
         return 1
     fi
-    claude --dangerously-skip-permissions "/session $*"
+    local sid="$(uuidgen | tr 'A-Z' 'a-z')"
+    tmux rename-window "$*" 2>/dev/null
+    claude --remote-control --dangerously-skip-permissions --name "$*" --session-id "$sid"
 }
 
 # ============================================
